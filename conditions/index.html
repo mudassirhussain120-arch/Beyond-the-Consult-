@@ -359,6 +359,15 @@ p { margin: 0; }
 .soon { font-family: var(--serif); font-style: italic; color: var(--navy-soft); opacity: .75; font-size: 15.5px; white-space: nowrap; }
 .topic.is-soon h3 { color: var(--navy-soft); }
 
+
+/* grouped index */
+.jump { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 8px; }
+.jump a { text-decoration: none; font-size: 14.5px; font-weight: 500; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--hairline); color: var(--navy); background: var(--cream-deep); transition: background .2s, color .2s; }
+.jump a:hover { background: var(--navy); color: var(--cream); }
+.group { margin-top: 56px; scroll-margin-top: 90px; }
+.group-h { font-size: clamp(26px, 3vw, 32px); margin-bottom: 6px; max-width: none; }
+.group-note { color: var(--navy-soft); font-size: 15.5px; margin-bottom: 18px; }
+
 .sheets-note { margin-top: 32px; font-size: 15px; color: var(--navy-soft); max-width: 44em; }
 
 /* safety note */
@@ -556,7 +565,11 @@ body.show-ur span[data-lang="ur"] { display: inline; }
      ===================================================== -->
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <ul class="topics">
+    <nav class="jump" aria-label="Jump to a group"><a href="#g-kidney">Kidneys, ureters and stones</a><a href="#g-bladder">Bladder, prostate and urine flow</a><a href="#g-cancer">Cancers</a><a href="#g-testicle">Testicle and scrotum</a><a href="#g-sexual">Sexual health and fertility</a><a href="#g-children">Children</a></nav>
+    <div class="group" id="g-kidney">
+      <h2 class="group-h">Kidneys, ureters and stones</h2>
+      <p class="group-note">Stones, and blockages in the drainage tubes of the kidney.</p>
+      <ul class="topics">
       <li class="topic">
         <div>
           <h3>Kidney and ureteric stones</h3>
@@ -566,11 +579,24 @@ body.show-ur span[data-lang="ur"] { display: inline; }
       </li>
       <li class="topic">
         <div>
-          <h3>Enlarged prostate <span class="also">(BPH)</span></h3>
-          <p>A common, non-cancerous enlargement of the prostate in older men, which can make passing urine slower, weaker or more frequent.</p>
+          <h3>PUJ obstruction <span class="also">(blockage where the kidney meets the ureter)</span></h3>
+          <p>A narrowing that makes the kidney swell, often found before birth or in childhood. When it can be watched, and when an operation (pyeloplasty) helps.</p>
         </div>
-        <a class="read" href="enlarged-prostate.html">Read the guide</a>
+        <a class="read" href="puj-obstruction.html">Read the guide</a>
       </li>
+      <li class="topic">
+        <div>
+          <h3>Bladder stones</h3>
+          <p>Hard lumps that form when urine is left behind in the bladder. The symptoms, how they are removed through the urine tube, and how to stop them returning.</p>
+        </div>
+        <a class="read" href="bladder-stones.html">Read the guide</a>
+      </li>
+      </ul>
+    </div>
+    <div class="group" id="g-bladder">
+      <h2 class="group-h">Bladder, prostate and urine flow</h2>
+      <p class="group-note">Problems with passing urine, holding urine, infections and the prostate.</p>
+      <ul class="topics">
       <li class="topic">
         <div>
           <h3>Urinary tract infection <span class="also">(UTI)</span></h3>
@@ -584,6 +610,13 @@ body.show-ur span[data-lang="ur"] { display: inline; }
           <p>When the bladder cannot empty properly. It can come on suddenly and painfully, which is an emergency, or build up slowly without pain.</p>
         </div>
         <a class="read" href="urinary-retention.html">Read the guide</a>
+      </li>
+      <li class="topic">
+        <div>
+          <h3>Enlarged prostate <span class="also">(BPH)</span></h3>
+          <p>A common, non-cancerous enlargement of the prostate in older men, which can make passing urine slower, weaker or more frequent.</p>
+        </div>
+        <a class="read" href="enlarged-prostate.html">Read the guide</a>
       </li>
       <li class="topic">
         <div>
@@ -615,25 +648,17 @@ body.show-ur span[data-lang="ur"] { display: inline; }
       </li>
       <li class="topic">
         <div>
-          <h3>Bladder stones</h3>
-          <p>Hard lumps that form when urine is left behind in the bladder. The symptoms, how they are removed through the urine tube, and how to stop them returning.</p>
-        </div>
-        <a class="read" href="bladder-stones.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
-          <h3>PUJ obstruction <span class="also">(blockage where the kidney meets the ureter)</span></h3>
-          <p>A narrowing that makes the kidney swell, often found before birth or in childhood. When it can be watched, and when an operation (pyeloplasty) helps.</p>
-        </div>
-        <a class="read" href="puj-obstruction.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
           <h3>Vesicovaginal fistula <span class="also">(urine leaking from the vagina)</span></h3>
           <p>An opening between the bladder and vagina that makes urine leak all the time. It is not the woman's fault, and it can usually be repaired.</p>
         </div>
         <a class="read" href="vesicovaginal-fistula.html">Read the guide</a>
       </li>
+      </ul>
+    </div>
+    <div class="group" id="g-cancer">
+      <h2 class="group-h">Cancers</h2>
+      <p class="group-note">Cancers of the prostate, bladder, kidney, testicle and adrenal gland.</p>
+      <ul class="topics">
       <li class="topic">
         <div>
           <h3>Prostate cancer</h3>
@@ -669,6 +694,66 @@ body.show-ur span[data-lang="ur"] { display: inline; }
         </div>
         <a class="read" href="adrenal-cancer.html">Read the guide</a>
       </li>
+      </ul>
+    </div>
+    <div class="group" id="g-testicle">
+      <h2 class="group-h">Testicle and scrotum</h2>
+      <p class="group-note">Pain, swelling and infection, including one emergency.</p>
+      <ul class="topics">
+      <li class="topic">
+        <div>
+          <h3>Testicular torsion <span class="also">(twisted testicle)</span></h3>
+          <p>A medical emergency. Sudden, severe testicle pain needs hospital care straight away to save the testicle. The signs, what happens in hospital, and where to go.</p>
+        </div>
+        <a class="read" href="testicular-torsion.html">Read the guide</a>
+      </li>
+      <li class="topic">
+        <div>
+          <h3>Epididymo-orchitis <span class="also">(infection of the testicle and its tube)</span></h3>
+          <p>An infection that makes the testicle and the tube behind it painful and swollen. Usually treatable, but sudden severe pain can mean a twisted testicle. Causes, treatment and when to seek help.</p>
+        </div>
+        <a class="read" href="epididymo-orchitis.html">Read the guide</a>
+      </li>
+      <li class="topic">
+        <div>
+          <h3>Hydrocele <span class="also">(fluid swelling around the testicle)</span></h3>
+          <p>A painless swelling of the scrotum caused by fluid around the testicle. Usually harmless, but it needs a proper check. Causes, treatment options and when to seek help.</p>
+        </div>
+        <a class="read" href="hydrocele.html">Read the guide</a>
+      </li>
+      <li class="topic">
+        <div>
+          <h3>Varicocele <span class="also">(enlarged veins in the scrotum)</span></h3>
+          <p>Swollen veins around the testicle, like varicose veins. Common and often harmless, but it can cause discomfort or affect fertility. How it is checked, who needs treatment, and the options.</p>
+        </div>
+        <a class="read" href="varicocele.html">Read the guide</a>
+      </li>
+      </ul>
+    </div>
+    <div class="group" id="g-sexual">
+      <h2 class="group-h">Sexual health and fertility</h2>
+      <p class="group-note">Erections and difficulty fathering a child.</p>
+      <ul class="topics">
+      <li class="topic">
+        <div>
+          <h3>Erectile dysfunction <span class="also">(ED)</span></h3>
+          <p>Trouble getting or keeping an erection. Common, usually has findable causes, and can very often be helped. Why it happens, how it is checked, and the treatment options.</p>
+        </div>
+        <a class="read" href="erectile-dysfunction.html">Read the guide</a>
+      </li>
+      <li class="topic">
+        <div>
+          <h3>Male infertility <span class="also">(difficulty fathering a child)</span></h3>
+          <p>When a couple has not conceived and the man's sperm may be part of the reason. The causes, how it is checked, the treatment options, and what to expect, without false promises.</p>
+        </div>
+        <a class="read" href="male-infertility.html">Read the guide</a>
+      </li>
+      </ul>
+    </div>
+    <div class="group" id="g-children">
+      <h2 class="group-h">Children</h2>
+      <p class="group-note">Guides written for parents.</p>
+      <ul class="topics">
       <li class="topic">
         <div>
           <h3>Undescended testis <span class="also">(a testicle that has not come down)</span></h3>
@@ -697,49 +782,8 @@ body.show-ur span[data-lang="ur"] { display: inline; }
         </div>
         <a class="read" href="bedwetting.html">Read the guide</a>
       </li>
-      <li class="topic">
-        <div>
-          <h3>Testicular torsion <span class="also">(twisted testicle)</span></h3>
-          <p>A medical emergency. Sudden, severe testicle pain needs hospital care straight away to save the testicle. The signs, what happens in hospital, and where to go.</p>
-        </div>
-        <a class="read" href="testicular-torsion.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
-          <h3>Erectile dysfunction <span class="also">(ED)</span></h3>
-          <p>Trouble getting or keeping an erection. Common, usually has findable causes, and can very often be helped. Why it happens, how it is checked, and the treatment options.</p>
-        </div>
-        <a class="read" href="erectile-dysfunction.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
-          <h3>Hydrocele <span class="also">(fluid swelling around the testicle)</span></h3>
-          <p>A painless swelling of the scrotum caused by fluid around the testicle. Usually harmless, but it needs a proper check. Causes, treatment options and when to seek help.</p>
-        </div>
-        <a class="read" href="hydrocele.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
-          <h3>Varicocele <span class="also">(enlarged veins in the scrotum)</span></h3>
-          <p>Swollen veins around the testicle, like varicose veins. Common and often harmless, but it can cause discomfort or affect fertility. How it is checked, who needs treatment, and the options.</p>
-        </div>
-        <a class="read" href="varicocele.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
-          <h3>Male infertility <span class="also">(difficulty fathering a child)</span></h3>
-          <p>When a couple has not conceived and the man's sperm may be part of the reason. The causes, how it is checked, the treatment options, and what to expect, without false promises.</p>
-        </div>
-        <a class="read" href="male-infertility.html">Read the guide</a>
-      </li>
-      <li class="topic">
-        <div>
-          <h3>Epididymo-orchitis <span class="also">(infection of the testicle and its tube)</span></h3>
-          <p>An infection that makes the testicle and the tube behind it painful and swollen. Usually treatable, but sudden severe pain can mean a twisted testicle. Causes, treatment and when to seek help.</p>
-        </div>
-        <a class="read" href="epididymo-orchitis.html">Read the guide</a>
-      </li>
-    </ul>
+      </ul>
+    </div>
     <p class="sheets-note">More guides will be added over time. If there's a topic you'd like us to cover, <a class="textlink" href="https://wa.me/923092193650" target="_blank" rel="noopener">let us know on WhatsApp</a>.</p>
   </div>
 </section>
