@@ -300,6 +300,65 @@ p { margin: 0; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* =========================================================
+   HOME PAGE ADDITIONS — pillars, urologist overview, patient card
+   Uses only the brand tokens above.
+   ========================================================= */
+.pillar-line { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 26px; }
+.pillar-line li { position: relative; padding-left: 18px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--navy); }
+.pillar-line li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.hero .actions { margin-top: 34px; gap: 14px; }
+
+.gap .ask { grid-column: 1 / -1; background: #fff; border: 1px solid var(--hairline); border-radius: 20px; padding: 34px 38px; }
+.gap .ask h3 { font-size: clamp(22px, 2.6vw, 30px); max-width: 28em; }
+.gap .ask p { margin-top: 12px; max-width: 38em; }
+.gap .ask .textlink { display: inline-block; margin-top: 18px; }
+
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 52px; }
+.pillars > div { border-top: 1px solid var(--gold); padding-top: 20px; min-width: 0; }
+.pillars h3 { font-size: 24px; margin-bottom: 12px; }
+.pillars .lead { color: var(--ink); }
+.pillars ul { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px; }
+.pillars li { position: relative; padding-left: 22px; font-size: 15.5px; color: var(--navy-soft); }
+.pillars li::before { content: ""; position: absolute; left: 1px; top: 0.7em; width: 9px; height: 2px; background: var(--gold); }
+
+.uro-grid, .pat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.uro-grid .dots { margin-top: 28px; }
+.uro-cta { margin-top: 30px; }
+.overview { background: #fff; border: 1px solid var(--hairline); border-radius: 20px; padding: 28px 30px 24px; min-width: 0; }
+.overview-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.overview-head b { font-family: var(--serif); font-weight: 480; font-size: 20px; color: var(--navy); }
+.overview-head span { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy-soft); }
+.rows { list-style: none; margin: 18px 0 0; padding: 0; }
+.rows li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid var(--hairline); }
+.rows .who { font-weight: 500; color: var(--navy); }
+.rows .what { display: block; font-size: 13px; font-weight: 400; color: var(--navy-soft); }
+.pill { font-size: 13px; font-weight: 500; padding: 5px 13px; border-radius: 999px; white-space: nowrap; }
+.p-navy { background: var(--navy); color: var(--cream); }
+.p-line { border: 1px solid var(--navy); color: var(--navy); }
+.p-gold { background: rgba(173, 122, 43, 0.16); color: var(--navy); border: 1px solid var(--gold); }
+.p-deep { background: var(--cream-deep); color: var(--navy); border: 1px solid var(--hairline); }
+.overview .note { margin-top: 14px; font-size: 13.5px; color: var(--navy-soft); }
+
+.pat-grid .panel-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 30px; }
+.guide-card { background: #fff; border: 1px solid var(--hairline); border-radius: 20px; padding: 34px; }
+.guide-card h3 { font-size: 24px; }
+.guide-card p { margin-top: 12px; }
+.guide-card .emergency { margin-top: 22px; padding: 14px 18px; border-radius: 12px; background: rgba(173, 122, 43, 0.14); color: var(--navy); font-size: 15px; font-weight: 500; }
+
+.never { margin-top: 40px; max-width: 46em; color: var(--navy-soft); }
+.never strong { color: var(--navy); font-weight: 600; }
+.closing .contact-line { margin-top: 28px; font-size: 14.5px; color: var(--navy-soft); }
+
+@media (max-width: 960px) {
+  .pillars { grid-template-columns: 1fr; gap: 36px; }
+  .uro-grid, .pat-grid { grid-template-columns: 1fr; gap: 44px; }
+}
+@media (max-width: 760px) {
+  .gap .ask { padding: 28px 24px; }
+  .overview, .guide-card { padding: 26px 22px; }
+}
 </style>
 </head>
 <body>
@@ -341,19 +400,28 @@ p { margin: 0; }
 <section class="hero">
   <div class="wrap">
     <div>
-      <p class="kicker">Patient coordination for urologists</p>
-      <h1>Your patients, looked after between visits.</h1>
-      <p class="lede">Beyond the Consult handles follow-up, reminders and practical questions on your behalf, so no patient leaves your clinic and slips out of care before the next appointment.</p>
+      <p class="kicker">Continuity of care for urology practices</p>
+      <h1>Care that carries on after the consultation.</h1>
+      <p class="lede">Beyond the Consult follows each of your patients from referral to follow-up. We keep them informed, keep them safe, and make sure the plan you gave them is completed, all on your behalf.</p>
+      <ul class="pillar-line" aria-label="What we ensure">
+        <li>Continuity of care</li>
+        <li>Patient education</li>
+        <li>Patient safety</li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-gold" href="https://wa.me/923092193650" target="_blank" rel="noopener">Message us on WhatsApp</a>
+        <a class="btn btn-line" href="#how">See how it works</a>
+      </div>
     </div>
 
     <!-- Journey graphic: edit the steps below freely -->
     <div class="journey" aria-label="What happens between two visits">
       <ol>
         <li class="visit"><span class="dot"></span><p class="step">Consultation<span class="when">With the urologist</span></p></li>
-        <li><span class="dot"></span><p class="step">We call to introduce ourselves<span class="when">Within 24 hours of referral</span></p></li>
-        <li><span class="dot"></span><p class="step">Questions answered, tests and dates confirmed<span class="when">In the days that follow</span></p></li>
-        <li><span class="dot"></span><p class="step">Reminder to patient and doctor<span class="when">On the day of the appointment</span></p></li>
-        <li class="visit"><span class="dot"></span><p class="step">Next visit<span class="when">And the cycle continues</span></p></li>
+        <li><span class="dot"></span><p class="step">We reach out and introduce ourselves<span class="when">Promptly after referral</span></p></li>
+        <li><span class="dot"></span><p class="step">Your plan explained, tests and dates confirmed<span class="when">In the patient's own language</span></p></li>
+        <li><span class="dot"></span><p class="step">Reminders sent, results chased back to you<span class="when">Until each follow-up is closed</span></p></li>
+        <li class="visit"><span class="dot"></span><p class="step">Next visit<span class="when">Care continued, patient still yours</span></p></li>
       </ol>
       <p class="caption">The gold line is where we work.</p>
     </div>
@@ -373,61 +441,133 @@ p { margin: 0; }
     <ul class="dots">
       <li>Follow-up visits are missed or delayed</li>
       <li>Patients are unsure what to do next, or who to ask</li>
+      <li>Tests are not done, or results are not acted on</li>
       <li>Doctors lose track of patients they meant to see again</li>
     </ul>
+    <div class="ask">
+      <h3>How many of your patients from the last 12 months needed a follow-up and never came back?</h3>
+      <p>It is rarely a lack of care. It is a gap that no one in a busy clinic has the time to close.</p>
+      <a class="textlink" href="#urologists">Talk to us about your practice</a>
+    </div>
   </div>
 </section>
 
 <!-- =====================================================
-     WHAT WE DO
+     WHAT WE ENSURE (three pillars)
      ===================================================== -->
-<section class="section">
+<section class="section" id="pillars">
   <div class="wrap">
-    <p class="kicker">What we do</p>
+    <p class="kicker">What we ensure</p>
+    <h2>More than a reminder service.</h2>
+    <p class="intro">Reminders are one tool. The aim is a patient who understands the plan, completes it, and is never lost along the way.</p>
+    <div class="pillars">
+      <div>
+        <h3>Continuity of care</h3>
+        <p class="lead">Your plan is followed from referral to the next appointment, so tests get done, results reach you and the next visit is confirmed.</p>
+        <ul>
+          <li>A familiar coordinator your patients come to recognise</li>
+          <li>Follow-up confirmed on your calendar, not left to memory</li>
+          <li>A clear view of who has been contacted and who needs attention</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Patient education</h3>
+        <p class="lead">We explain your plan in plain language, in English and Roman Urdu, and answer the practical questions patients were too rushed to ask.</p>
+        <ul>
+          <li>Cost, location and preparation explained before they ask you</li>
+          <li>Plain-language guides on conditions, tests and procedures</li>
+          <li>Patient sheets and voice notes that carry your name and advice</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Patient safety</h3>
+        <p class="lead">Follow-up is a safety measure. Missed tests, lapsed recalls and results nobody acted on put patients at risk, so we chase each one until it is closed.</p>
+        <ul>
+          <li>Investigations chased until results are back with you</li>
+          <li>Surveillance and recall dates that do not quietly lapse</li>
+          <li>Anything needing your attention passed to you, never answered with clinical advice</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     HOW IT WORKS (a real sequence, so numbered)
+     ===================================================== -->
+<section class="section alt" id="how">
+  <div class="wrap">
+    <p class="kicker">How it works</p>
     <h2>A simple routine, repeated for every patient.</h2>
     <ol class="steps">
       <li>
         <h3>Referral</h3>
-        <p>You share the patient's details with us after the consultation.</p>
+        <p>You share the diagnosis, what is needed and when to follow up. A short note or voice message is enough.</p>
       </li>
       <li>
         <h3>First contact</h3>
-        <p>We reach out within 24 hours to introduce ourselves and confirm next steps.</p>
+        <p>We reach the patient promptly, walk them through your plan in their own language and confirm tests and dates.</p>
       </li>
       <li>
-        <h3>Reminders</h3>
-        <p>Before each appointment, we remind the patient and keep you informed.</p>
+        <h3>Education and signposting</h3>
+        <p>We direct them to the diagnostic centres you trust, explain how to prepare, and share plain-language guides.</p>
       </li>
       <li>
-        <h3>Ongoing follow-up</h3>
-        <p>After every visit the cycle continues, for as long as the patient needs it.</p>
+        <h3>Follow-up until closed</h3>
+        <p>Reminders go out before tests and visits, results are chased back to you, and the next appointment is confirmed.</p>
       </li>
     </ol>
   </div>
 </section>
 
 <!-- =====================================================
-     TWO AUDIENCES
+     FOR UROLOGISTS
      ===================================================== -->
-<section class="section alt">
-  <div class="wrap split">
-    <div id="urologists">
+<section class="section" id="urologists">
+  <div class="wrap uro-grid">
+    <div>
       <p class="kicker">For urologists</p>
       <h2>Your patients stay your patients.</h2>
-      <p>We work under your direction, keep you updated, and give you a clear view of who has been contacted and who needs attention, without adding to your clinic's workload.</p>
-      <a class="btn btn-line" href="https://wa.me/923092193650" target="_blank" rel="noopener">Talk to us about your practice</a>
+      <p class="intro">We work under your direction and keep you updated. You stop being your own follow-up desk, without handing out a personal number or answering logistics calls at odd hours.</p>
+      <ul class="dots">
+        <li>Clinical decisions stay with you</li>
+        <li>A short note or voice message is all we need from you</li>
+        <li>A clear view of every patient we are following</li>
+        <li>No commissions, no diagnostic-centre kickbacks, no steering of patients</li>
+      </ul>
+      <p class="uro-cta"><a class="btn btn-line" href="https://wa.me/923092193650" target="_blank" rel="noopener">Talk to us about your practice</a></p>
     </div>
-    <div id="patients">
+    <div class="overview" aria-label="Illustrative follow-up overview">
+      <div class="overview-head"><b>Follow-up overview</b><span>Illustrative example</span></div>
+      <ul class="rows">
+        <li><span class="who">Patient 1<span class="what">Results due back</span></span><span class="pill p-line">Reminder sent</span></li>
+        <li><span class="who">Patient 2<span class="what">Review visit</span></span><span class="pill p-navy">Follow-up booked</span></li>
+        <li><span class="who">Patient 3<span class="what">Test not yet done</span></span><span class="pill p-gold">Needs attention</span></li>
+        <li><span class="who">Patient 4<span class="what">New referral</span></span><span class="pill p-deep">First contact made</span></li>
+      </ul>
+      <p class="note">Sample layout with no real patient information.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FOR PATIENTS
+     ===================================================== -->
+<section class="section alt" id="patients">
+  <div class="wrap pat-grid">
+    <div>
       <p class="kicker">For patients</p>
       <h2>Here to help you stay on track.</h2>
-      <p>If your urologist has referred you to us, we'll remind you of appointments, answer practical questions and make sure you know what comes next. We don't give medical advice; your doctor remains in charge of your treatment.</p>
+      <p class="intro">If your urologist has referred you to us, we'll remind you of appointments, answer practical questions and make sure you know what comes next. We don't give medical advice; your doctor remains in charge of your treatment.</p>
       <div class="panel-actions">
         <a class="btn btn-line" href="https://wa.me/923092193650" target="_blank" rel="noopener">Message us on WhatsApp</a>
         <a class="textlink" href="patient-information.html">Read our patient information guides</a>
       </div>
-      <!-- Roman Urdu note: uncomment when the Urdu patient page exists
-      <p class="note">Roman Urdu mein maloomat jald dastiyab hongi.</p>
-      -->
+    </div>
+    <div class="guide-card">
+      <h3>Patient information guides</h3>
+      <p>Clear, plain-language guides in English and Roman Urdu, so you know what to expect after your consultation and when to contact your doctor.</p>
+      <p class="emergency">In an emergency, contact your doctor or go to the nearest hospital.</p>
     </div>
   </div>
 </section>
@@ -457,16 +597,17 @@ p { margin: 0; }
         <p>A real person, reachable on WhatsApp.</p>
       </div>
     </div>
+    <p class="never"><strong>What we never do.</strong> We never give clinical advice, take commissions, or steer patients towards or away from you. If we do, you can claim that month's fee back.</p>
   </div>
 </section>
 
 <!-- =====================================================
-     QUOTE BAND (swap in your Instagram brand quote if you prefer)
+     QUOTE BAND
      ===================================================== -->
 <section class="quote">
   <div class="wrap">
     <div class="rule top"></div>
-    <blockquote>The consult is where care begins, not where it ends.</blockquote>
+    <blockquote>Good care doesn't stop at the clinic door.</blockquote>
     <div class="rule bottom"></div>
   </div>
 </section>
@@ -482,6 +623,7 @@ p { margin: 0; }
       <a class="btn btn-gold" href="https://wa.me/923092193650" target="_blank" rel="noopener">Message us on WhatsApp</a>
       <a class="btn btn-line" href="mailto:beyondtheconsultation@gmail.com">Email us</a>
     </div>
+    <p class="contact-line">+92 309 2193650 · beyondtheconsultation@gmail.com · Karachi, Pakistan</p>
   </div>
 </section>
 
