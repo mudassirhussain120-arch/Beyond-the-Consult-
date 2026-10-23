@@ -1,0 +1,55 @@
+name: Publish Instagram post
+
+# 02:05 UTC = 07:05 in Pakistan, every day. GitHub scheduled runs can start a few minutes late;
+# the five-minute offset avoids the busiest moment at the top of the hour.
+on:
+  schedule:
+    - cron: "5 2 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Check everything but do not publish"
+        type: boolean
+        default: true
+      date:
+        description: "Post date (YYYY-MM-DD). Leave empty for today (UTC)."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Publish (or dry-run) the post for the day
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          SITE_BASE: https://beyondtheconsultation.com
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          POST_DATE: ${{ github.event_name == 'workflow_dispatch' && inputs.date || '' }}
+        run: |
+          args=""
+          if [ "$DRY_RUN" = "true" ]; then args="$args --dry-run"; fi
+          if [ -n "$POST_DATE" ]; then args="$args --date $POST_DATE"; fi
+          python3 social/publish.py $args
+
+      - name: Record that the post went out
+        run: |
+          git config user.name "btc-publisher"
+          git config user.email "actions@users.noreply.github.com"
+          git add social/queue/*/posted.json 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Record published Instagram post"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push
+          fi
