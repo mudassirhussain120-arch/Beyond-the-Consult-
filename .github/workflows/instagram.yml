@@ -1,10 +1,13 @@
 name: Publish Instagram post
 
-# 02:05 UTC = 07:05 in Pakistan, every day. GitHub scheduled runs can start a few minutes late;
-# the five-minute offset avoids the busiest moment at the top of the hour.
+# 02:05 UTC = 07:05 in Pakistan, every day. GitHub can delay or skip scheduled runs, so two backup
+# triggers follow at 02:35 and 03:05 UTC. The script skips a post that is already published,
+# so the extra triggers are harmless.
 on:
   schedule:
     - cron: "5 2 * * *"
+    - cron: "35 2 * * *"
+    - cron: "5 3 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
