@@ -419,6 +419,16 @@ body.show-ur span[data-lang="ur"] { display: inline; }
   body.show-ur .fig figcaption::after { content: " Poori tasveer dekhne ke liye screen ko side par khiskayein."; }
 }
 @media print { .fig svg { min-width: 0; } .fig-scroll { overflow: visible; } }
+
+/* =========================================================
+   NAVIGATION — four links need the mobile menu a little earlier.
+   Copy this block into every page together with the nav above.
+   ========================================================= */
+.nav-links { gap: 26px; }
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .menu { display: block; }
+}
 </style>
 </head>
 <body>
@@ -438,14 +448,16 @@ body.show-ur span[data-lang="ur"] { display: inline; }
     </a>
     <nav class="nav-links" aria-label="Main">
       <a href="../">Home</a>
-      <a href="../patient-information.html" aria-current="page">Patient information</a>
+      <a href="../patient-information.html" aria-current="page">For patients</a>
+      <a href="../for-urologists.html">For urologists</a>
       <a class="btn btn-gold" href="https://wa.me/923092193650" target="_blank" rel="noopener">Work with us</a>
     </nav>
     <details class="menu">
       <summary>Menu</summary>
       <div class="menu-panel">
         <a href="../">Home</a>
-        <a href="../patient-information.html">Patient information</a>
+        <a href="../patient-information.html">For patients</a>
+        <a href="../for-urologists.html">For urologists</a>
         <a href="https://wa.me/923092193650" target="_blank" rel="noopener">Work with us on WhatsApp</a>
       </div>
     </details>

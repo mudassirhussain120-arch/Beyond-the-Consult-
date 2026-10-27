@@ -396,6 +396,16 @@ p { margin: 0; }
   .paths { padding-bottom: 64px; }
   .topic { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   NAVIGATION — four links need the mobile menu a little earlier.
+   Copy this block into every page together with the nav above.
+   ========================================================= */
+.nav-links { gap: 26px; }
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .menu { display: block; }
+}
 </style>
 </head>
 <body>
@@ -415,14 +425,16 @@ p { margin: 0; }
     </a>
     <nav class="nav-links" aria-label="Main">
       <a href="./">Home</a>
-      <a href="patient-information.html" aria-current="page">Patient information</a>
+      <a href="patient-information.html" aria-current="page">For patients</a>
+      <a href="for-urologists.html">For urologists</a>
       <a class="btn btn-gold" href="https://wa.me/923092193650" target="_blank" rel="noopener">Work with us</a>
     </nav>
     <details class="menu">
       <summary>Menu</summary>
       <div class="menu-panel">
         <a href="./">Home</a>
-        <a href="patient-information.html">Patient information</a>
+        <a href="patient-information.html">For patients</a>
+        <a href="for-urologists.html">For urologists</a>
         <a href="https://wa.me/923092193650" target="_blank" rel="noopener">Work with us on WhatsApp</a>
       </div>
     </details>
