@@ -391,6 +391,14 @@ p { margin: 0; }
 .door .btn { text-align: center; }
 .door .btn .ur { display: block; font-size: 13px; font-weight: 400; opacity: 0.92; line-height: 1.3; }
 
+.door .actions.stack { flex-direction: column; align-items: stretch; gap: 12px; }
+.door .btn-row { display: flex; align-items: center; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; text-align: left; }
+.door .btn-row .ur { display: inline; font-size: 13px; font-weight: 400; font-style: italic; opacity: .92; line-height: 1.3; }
+.door .btn-row .en { margin-left: auto; text-align: right; }
+.door .btn-soon { padding-left: 20px; padding-right: 20px; border: 1px dashed var(--navy-soft); color: var(--navy-soft); background: transparent; cursor: default; }
+.door .btn-soon em { font-style: normal; }
+.door .btn-soon .ur { font-size: 12px; }
+
 .door.uro { background: var(--navy); border-color: var(--navy); }
 .door.uro h2 { color: var(--cream); }
 .door.uro .body { font-family: var(--serif); font-weight: 340; font-size: clamp(23px, 2.4vw, 30px); line-height: 1.3; letter-spacing: -0.01em; max-width: 15em; color: var(--cream); }
@@ -477,9 +485,10 @@ p { margin: 0; }
         <p class="ur-title" lang="ur-Latn">Main mareez ya mareez ka rishtedaar hoon</p>
         <p class="body">Plain-language guides to help you be in control of your care.</p>
         <p class="body ur-body" lang="ur-Latn">Aasaan zubaan mein guides, jo aap ko apne ilaaj par control rakhne mein madad dein.</p>
-        <div class="actions">
-          <a class="btn btn-gold" href="patient-information.html">Read the patient guides<span class="ur" lang="ur-Latn">Guides parhein</span></a>
-          <a class="btn btn-line" href="order-medicines.html">Order medicine online</a>
+        <div class="actions stack">
+          <a class="btn btn-gold btn-row" href="patient-information.html"><span class="ur" lang="ur-Latn">Guides parhein</span><span class="en">Read information guides</span></a>
+          <a class="btn btn-line btn-row" href="order-medicines.html"><span class="ur" lang="ur-Latn">Dawaiyan online mangwaein</span><span class="en">Order medicine online</span></a>
+          <span class="btn btn-soon btn-row" role="link" aria-disabled="true"><span class="ur" lang="ur-Latn"><em>Coming soon</em> · Jald aa raha hai</span><span class="en">Find laboratory services</span></span>
         </div>      </section>
 
       <!-- DOOR 2: UROLOGISTS -->
