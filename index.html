@@ -394,7 +394,8 @@ p { margin: 0; }
 .door .actions.stack { flex-direction: column; align-items: stretch; gap: 12px; }
 .door .btn-row { display: flex; align-items: center; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; text-align: left; }
 .door .btn-row .ur { display: inline; font-size: 13px; font-weight: 400; font-style: italic; opacity: .92; line-height: 1.3; }
-.door .btn-row .en { margin-left: auto; text-align: right; }
+.door .btn-row .en { order: 1; text-align: left; }
+.door .btn-row .ur { order: 2; margin-left: auto; text-align: right; }
 .door .btn-soon { padding-left: 20px; padding-right: 20px; border: 1px dashed var(--navy-soft); color: var(--navy-soft); background: transparent; cursor: default; }
 .door .btn-soon em { font-style: normal; }
 .door .btn-soon .ur { font-size: 12px; }
