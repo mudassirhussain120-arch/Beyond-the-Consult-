@@ -98,7 +98,7 @@ def publish_facebook(d, folder, caption, urls, token, dry_run):
     if "_error" in page:
         print(f"::warning::Facebook skipped, could not read the Page with this token: {page['_error']}")
         return
-    if page.get("name") != want:
+    if " ".join((page.get("name") or "").split()) != " ".join(want.split()):
         print(f"::warning::Facebook skipped: token is for '{page.get('name')}', not the Page '{want}'.")
         return
     pid = page["id"]
